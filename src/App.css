@@ -1,0 +1,176 @@
+/* Font import */
+@font-face {
+    font-family: 'Omnes';
+    src: url('/fonts/Omnes_Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  :root {
+    font-family: 'Omnes', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+
+  .weatherContainer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 12px;
+  }
+  
+  .appHeader {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .appHeader h2 {
+    color: #000;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .appHeader h3 {
+    color: #606060;
+    font-size: 1.3rem;
+    font-weight: 200;
+    margin-top: 0;
+  }
+  
+  .searchSection {
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .searchBarContainer form {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+  }
+  
+  .cityInput {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+  }
+  
+  .searchButton {
+    padding: 0.8rem 1.5rem;
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-family: inherit;
+  }
+  
+  .searchButton:hover {
+    background-color: #005fa3;
+  }
+  
+  .searchButton:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+  }
+  
+  .currentWeatherResult {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #e8f4fd;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+  
+  .statusMessage {
+    text-align: center;
+    padding: 0.8rem;
+    color: #666;
+  }
+  
+  .errorMessage {
+    text-align: center;
+    padding: 0.8rem;
+    color: #d32f2f;
+  }
+  
+  .defaultCitiesSection {
+    margin-top: 2rem;
+  }
+  
+  .defaultCitiesSection h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #606060;
+    font-weight: 200;
+  }
+  
+  .citiesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .cityWeatherCard {
+    padding: 1.2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .cityWeatherCard:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cityWeatherCard h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #000;
+    font-size: 1.2rem;
+  }
+  
+  .temperatureText {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 0.5rem 0;
+  }
+  
+  .loadingText {
+    color: #666;
+  }
+  
+  .errorText {
+    color: #d32f2f;
+    font-size: 0.9rem;
+  }
+
+  footer {
+    background-color: #A3E5FF;
+    min-height: 100px;
+  }
+  
+  /* some simple responsiveness, adding more here later */
+  @media (max-width: 768px) {
+    .citiesGrid {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    
+    .weatherContainer {
+      padding: 1.5rem;
+    }
+    
+    .searchBarContainer form {
+      flex-direction: column;
+    }
+  }
