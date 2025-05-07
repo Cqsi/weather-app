@@ -38,9 +38,6 @@
   .searchSection {
     margin-bottom: 3rem;
     padding: 1.5rem;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
   }
   
   .searchBarContainer form {
@@ -53,15 +50,25 @@
   .cityInput {
     flex: 1;
     padding: 0.8rem 1rem;
-    border: 1px solid #ddd;
+    border: 2px solid #b5b5b5;
+    background-color: #F3F3F3;
     border-radius: 6px;
     font-size: 1rem;
     font-family: inherit;
   }
+
+  .cityInput::placeholder {
+    opacity: 1;
+    transition: opacity 0.2s ease;
+  }
+  
+  .cityInput:focus::placeholder {
+    opacity: 0;
+  }
   
   .searchButton {
     padding: 0.8rem 1.5rem;
-    background-color: #0077cc;
+    background-color: #A3E5FF;
     color: white;
     border: none;
     border-radius: 6px;
@@ -72,7 +79,7 @@
   }
   
   .searchButton:hover {
-    background-color: #005fa3;
+    background-color: #6bc0fd;
   }
   
   .searchButton:disabled {
