@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { fetchCityForecast } from '../utils/weatherUtils';
-import ''
+import '../WeatherDetail.css'
 
 function WeatherDetail({ city, onBackClick }) {
   const [forecastData, setForecastData] = useState({
