@@ -56,16 +56,9 @@ function App() {
               {currentWeather.error && (
                 <p className="errorMessage">{currentWeather.error}</p>
               )}
-              
-              {currentWeather.city && currentWeather.temperature !== null && !currentWeather.loading && !currentWeather.error && (
-                <div className="currentWeatherResult">
-                  <p>Current temperature in {currentWeather.city}: {currentWeather.temperature}°C</p>
-                </div>
-              )}
             </section>
             
             <section className="defaultCitiesSection">
-              <h3>Popular Cities</h3>
               <DefaultCities 
                 onCitySelect={(city) => {
                   setSelectedCity(city);
