@@ -30,7 +30,7 @@ margin-bottom: 4rem;
 color: #000;
 font-size: 4rem;
 margin-top: 2em;
-margin-bottom: 0.5rem;
+margin-bottom: 1rem;
 }
 
 .appHeader h3 {
@@ -45,36 +45,41 @@ text-align: center;
 }
 
 .emoji-container {
-position: relative;
-display: inline-block;
-width: 70px;
-height: 72px; /* Make room for taller emojis */
-vertical-align: middle;
-margin: 0 10px;
-}
-
-.emoji {
-position: absolute;
-left: 0;
-right: 0;
-font-size: 4rem; /* Match your existing h2 font size */
-transition: all 0.3s ease-in-out;
-}
-
-.emoji-visible {
-opacity: 1;
-transform: translateY(0);
-}
-
-.emoji-leaving {
-opacity: 0;
-transform: translateY(10px);
-}
-
-.emoji-entering {
-opacity: 0;
-transform: translateY(-10px);
-}
+    position: relative;
+    display: inline-block;
+    width: 70px;
+    height: 72px;
+    vertical-align: middle;
+    margin-top: 15px;
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+  
+  .emoji {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 70px;
+    height: 70px; 
+    object-fit: contain; 
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .emoji-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .emoji-leaving {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  
+  .emoji-entering {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  
 
 .appHeader h2 {
 display: flex;

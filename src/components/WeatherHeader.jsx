@@ -1,16 +1,18 @@
 import { useState, useEffect } from 'react';
 
 function WeatherHeader() {
-  // emojis (for now?)
+  // Weather emojis using image files from public/emojis folder
   const emojis = [
-    { symbol: "☀️", label: "sunny" },
-    { symbol: "🌧️", label: "rainy" },
-    { symbol: "🌤️", label: "cloudy" },
-    { symbol: "🏃", label: "running" },
-    { symbol: "🧺", label: "picnic" },
-    { symbol: "🚗", label: "driving" },
-    { symbol: "❄️", label: "snowy" },
-    { symbol: "🌈", label: "rainbow" }
+    { image: "./emojis/sunny.png", label: "sunny" },
+    { image: "./emojis/rain_cloud.png", label: "rainy" },
+    { image: "./emojis/partly_sunny.png", label: "cloudy" },
+    { image: "./emojis/running.png", label: "running" },
+    { image: "./emojis/beach.png", label: "beach" },
+    { image: "./emojis/car.png", label: "driving" },
+    { image: "./emojis/snowflake.png", label: "snowy" },
+    { image: "./emojis/rainbow.png", label: "rainbow" },
+    { image: "./emojis/lightning.png", label: "stormy" },
+    { image: "./emojis/tornado.png", label: "tornado" }
   ];
   
   const [currentEmoji, setCurrentEmoji] = useState(emojis[0]);
@@ -24,7 +26,7 @@ function WeatherHeader() {
       // after exit animation completes, change emoji and start enter animation
       setTimeout(() => {
         setCurrentEmoji((prev) => {
-          const currentIndex = emojis.findIndex(emoji => emoji.symbol === prev.symbol);
+          const currentIndex = emojis.findIndex(emoji => emoji.image === prev.image);
           return emojis[(currentIndex + 1) % emojis.length];
         });
         setAnimationState('entering');
@@ -34,7 +36,7 @@ function WeatherHeader() {
           setAnimationState('visible');
         }, 300);
       }, 300);
-    }, 3000); // change every 4 seconds
+    }, 3000); // change every 3 seconds
     
     return () => clearInterval(interval);
   }, []);
@@ -57,12 +59,11 @@ function WeatherHeader() {
       <h2>
         Find out if it's 
         <span className="emoji-container">
-          <span 
+          <img 
+            src={currentEmoji.image}
+            alt={currentEmoji.label}
             className={`emoji ${getAnimationClass()}`}
-            aria-label={currentEmoji.label}
-          >
-            {currentEmoji.symbol}
-          </span>
+          />
         </span>
         weather
       </h2>
