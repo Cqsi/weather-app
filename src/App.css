@@ -103,10 +103,10 @@ justify-content: center;
 .cityInput {
 flex: 1;
 padding: 0.8rem 1rem;
-border: 2px solid #b5b5b5;
+border: 2px solid #515151;
 background-color: #F3F3F3;
 border-radius: 6px;
-font-size: 1rem;
+font-size: 1.4rem;
 font-family: inherit;
 }
 
@@ -121,9 +121,9 @@ opacity: 0;
 
 .searchButton {
 padding: 0.8rem 1.5rem;
-background-color: #A3E5FF;
-color: white;
-border: none;
+background-color: #ffe815;
+color: black;
+border: 2px solid black;
 border-radius: 6px;
 font-size: 1rem;
 cursor: pointer;
@@ -132,7 +132,7 @@ font-family: inherit;
 }
 
 .searchButton:hover {
-background-color: #6bc0fd;
+background-color: #f2dc14;
 }
 
 .searchButton:disabled {

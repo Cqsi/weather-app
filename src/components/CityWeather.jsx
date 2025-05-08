@@ -1,20 +1,29 @@
 import { useState, useEffect } from 'react';
 import { fetchCityTemperature } from '../utils/weatherUtils';
 
-// get a city's weather data
-
-function CityWeather({ city, initialLoad = false }) {
+function CityWeather({ city, initialLoad = false, cachedData = null }) {
   const [weatherData, setWeatherData] = useState({
-    temperature: null,
-    error: null,
-    loading: initialLoad
+    temperature: cachedData ? cachedData.temperature : null,
+    error: cachedData ? cachedData.error : null,
+    loading: initialLoad && !cachedData
   });
 
   useEffect(() => {
+    // Update from cached data if available
+    if (cachedData) {
+      setWeatherData({
+        temperature: cachedData.temperature,
+        error: cachedData.error,
+        loading: false
+      });
+      return;
+    }
+    
+    // Otherwise load data if initialLoad is true
     if (initialLoad) {
       loadWeatherData();
     }
-  }, []);
+  }, [cachedData]);
 
   const loadWeatherData = async () => {
     setWeatherData(prev => ({ ...prev, loading: true, error: null }));

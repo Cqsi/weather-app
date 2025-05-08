@@ -36,7 +36,7 @@ function SearchBar({ onWeatherUpdate }) {
           className="searchButton"
           disabled={loading}
         >
-          {loading ? 'Searching...' : 'Get Weather'}
+          {loading ? 'Loading...' : 'Get Weather'}
         </button>
       </form>
     </div>
