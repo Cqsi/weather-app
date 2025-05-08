@@ -40,6 +40,49 @@ font-weight: 200;
 margin-top: 0;
 }
 
+.header-container {
+text-align: center;
+}
+
+.emoji-container {
+position: relative;
+display: inline-block;
+width: 70px;
+height: 72px; /* Make room for taller emojis */
+vertical-align: middle;
+margin: 0 10px;
+}
+
+.emoji {
+position: absolute;
+left: 0;
+right: 0;
+font-size: 4rem; /* Match your existing h2 font size */
+transition: all 0.3s ease-in-out;
+}
+
+.emoji-visible {
+opacity: 1;
+transform: translateY(0);
+}
+
+.emoji-leaving {
+opacity: 0;
+transform: translateY(10px);
+}
+
+.emoji-entering {
+opacity: 0;
+transform: translateY(-10px);
+}
+
+.appHeader h2 {
+display: flex;
+align-items: center;
+justify-content: center;
+flex-wrap: wrap;
+}
+
 .searchSection {
 margin-bottom: 3rem;
 padding: 1.5rem;

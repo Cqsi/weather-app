@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import SearchBar from './components/SearchBar';
 import DefaultCities from './components/DefaultCities';
+import WeatherHeader from './components/WeatherHeader';
 import Footer from './components/Footer';
 
 function App() {
@@ -23,8 +24,7 @@ function App() {
     <>
       <div className="weatherContainer">
         <header className="appHeader">
-          <h2>Find out if it's raining</h2>
-          <h3>We'll tell you what the sky is thinking</h3>
+          <WeatherHeader />
         </header>
         
         <section className="searchSection">
