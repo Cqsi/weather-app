@@ -108,31 +108,6 @@ function CityDetailPage() {
           </div>
           
           <div className="forecastSection">
-            <h2>Today</h2>
-            <div className="dailyForecast">
-              {forecastData.daily && forecastData.daily.time.map((time, index) => {
-                if (time === today) {
-                  return (
-                    <div key={time} className="forecastDay">
-                      <div className="dayName">Today</div>
-                      <div className="forecastDayTemp">
-                        <span className="highTemp">{Math.round(forecastData.daily.temperature_2m_max[index])}°</span>
-                        <span className="lowTemp">{Math.round(forecastData.daily.temperature_2m_min[index])}°</span>
-                      </div>
-                      <img 
-                        src={getWeatherIcon(forecastData.daily.weathercode[index])}
-                        alt={`Weather forecast: ${forecastData.daily.weathercode[index]}`}
-                        className="forecastIcon"
-                      />
-                    </div>
-                  );
-                }
-                return null;
-              })}
-            </div>
-          </div>
-          
-          <div className="forecastSection">
             <h2>Tomorrow</h2>
             <div className="dailyForecast">
               {forecastData.daily && forecastData.daily.time.map((time, index) => {
@@ -143,7 +118,7 @@ function CityDetailPage() {
                 if (time === tomorrowStr) {
                   return (
                     <div key={time} className="forecastDay">
-                      <div className="dayName">Tomorrow</div>
+                      <div className="dayName">{formatDay(time)}</div>
                       <div className="forecastDayTemp">
                         <span className="highTemp">{Math.round(forecastData.daily.temperature_2m_max[index])}°</span>
                         <span className="lowTemp">{Math.round(forecastData.daily.temperature_2m_min[index])}°</span>
