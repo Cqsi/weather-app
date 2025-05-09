@@ -37,25 +37,25 @@ function CityDetailPage() {
     if (!weatherCode && weatherCode !== 0) return "./emojis/partly_sunny.png";
     
     // Clear
-    if (weatherCode === 0) return "./emojis/sunny.png";
+    if (weatherCode === 0) return "/emojis/sunny.png";
     // Mainly clear, partly cloudy
-    if (weatherCode <= 2) return "./emojis/partly_sunny.png";
+    if (weatherCode <= 2) return "/emojis/partly_sunny.png";
     // Overcast
-    if (weatherCode === 3) return "./emojis/partly_sunny.png";
+    if (weatherCode === 3) return "/emojis/partly_sunny.png";
     // Fog
-    if (weatherCode <= 49) return "./emojis/partly_sunny.png";
+    if (weatherCode <= 49) return "/emojis/partly_sunny.png";
     // Drizzle
-    if (weatherCode <= 59) return "./emojis/rain_cloud.png";
+    if (weatherCode <= 59) return "/emojis/rain_cloud.png";
     // Rain
-    if (weatherCode <= 69) return "./emojis/rain_cloud.png";
+    if (weatherCode <= 69) return "/emojis/rain_cloud.png";
     // Snow
-    if (weatherCode <= 79) return "./emojis/snowflake.png";
+    if (weatherCode <= 79) return "/emojis/snowflake.png";
     // Rain showers
-    if (weatherCode <= 82) return "./emojis/rain_cloud.png";
+    if (weatherCode <= 82) return "/emojis/rain_cloud.png";
     // Snow showers
-    if (weatherCode <= 86) return "./emojis/snowflake.png";
+    if (weatherCode <= 86) return "/emojis/snowflake.png";
     // Thunderstorm
-    if (weatherCode <= 99) return "./emojis/lightning.png";
+    if (weatherCode <= 99) return "/emojis/lightning.png";
     
     return "./emojis/partly_sunny.png";
   };
@@ -115,6 +115,7 @@ function CityDetailPage() {
                 if (time === today) {
                   return (
                     <div key={time} className="forecastDay">
+                      <div className="dayName">Today</div>
                       <div className="forecastDayTemp">
                         <span className="highTemp">{Math.round(forecastData.daily.temperature_2m_max[index])}°</span>
                         <span className="lowTemp">{Math.round(forecastData.daily.temperature_2m_min[index])}°</span>
@@ -143,6 +144,7 @@ function CityDetailPage() {
                 if (time === tomorrowStr) {
                   return (
                     <div key={time} className="forecastDay">
+                      <div className="dayName">Tomorrow</div>
                       <div className="forecastDayTemp">
                         <span className="highTemp">{Math.round(forecastData.daily.temperature_2m_max[index])}°</span>
                         <span className="lowTemp">{Math.round(forecastData.daily.temperature_2m_min[index])}°</span>
