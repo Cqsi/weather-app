@@ -7,6 +7,11 @@ function SearchBar({ onWeatherUpdate }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    if (!city.trim()) {
+      return;
+    }
+    
     setLoading(true);
     
     const result = await fetchCityTemperature(city);
@@ -34,7 +39,7 @@ function SearchBar({ onWeatherUpdate }) {
         <button 
           type="submit" 
           className="searchButton"
-          disabled={loading}
+          disabled={loading || !city.trim()}
         >
           {loading ? 'Loading...' : 'Get Weather'}
         </button>

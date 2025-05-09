@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import CityWeather from './CityWeather';
 
 function DefaultCities({ cachedData = {}, onCitySelect }) {
@@ -13,19 +14,26 @@ function DefaultCities({ cachedData = {}, onCitySelect }) {
 
   return (
     <div className="defaultCitiesContainer">
+      <h3>Popular Cities</h3>
       <div className="citiesGrid">
         {defaultCities.map(city => (
-          <div 
-            key={city} 
-            onClick={() => onCitySelect && onCitySelect(city)}
-            style={{ cursor: 'pointer' }}
+          <Link 
+            to={`/city/${encodeURIComponent(city)}`}
+            key={city}
+            style={{ textDecoration: 'none', color: 'inherit' }}
+            onClick={(e) => {
+              e.preventDefault();
+              onCitySelect(city);
+            }}
           >
-            <CityWeather
-              city={city}
-              initialLoad={false}
-              cachedData={cachedData[city]}
-            />
-          </div>
+            <div style={{ cursor: 'pointer' }}>
+              <CityWeather
+                city={city}
+                initialLoad={false}
+                cachedData={cachedData[city]}
+              />
+            </div>
+          </Link>
         ))}
       </div>
     </div>

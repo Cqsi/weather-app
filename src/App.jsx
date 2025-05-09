@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
-import SearchBar from './components/SearchBar';
-import DefaultCities from './components/DefaultCities';
-import WeatherHeader from './components/WeatherHeader';
+import HomePage from './pages/HomePage';
+import CityDetailPage from './pages/CityDetailPage';
 import Footer from './components/Footer';
-import WeatherDetail from './components/WeatherDetail';
 import LoadingScreen from './components/LoadingScreen';
 import './LoadingScreen.css';
 import { fetchCityTemperature } from './utils/weatherUtils';
@@ -13,12 +12,6 @@ function App() {
   // State to track if the app is in the initial loading state
   const [isInitialLoading, setIsInitialLoading] = useState(true);
   
-  // State to track if we're viewing the detail page or home page
-  const [view, setView] = useState('home');
-  
-  // State to store the selected city
-  const [selectedCity, setSelectedCity] = useState(null);
-
   // Default cities
   const defaultCities = [
     'London',
@@ -31,14 +24,6 @@ function App() {
 
   // State to store cached weather data
   const [cachedWeatherData, setCachedWeatherData] = useState({});
-
-  // temperature data
-  const [currentWeather, setCurrentWeather] = useState({
-    city: null,
-    temperature: null,
-    error: null,
-    loading: false
-  });
 
   useEffect(() => {
     const loadInitialData = async () => {
@@ -84,22 +69,6 @@ function App() {
     loadInitialData();
   }, []);
 
-  // handler for weather updates
-  const handleWeatherUpdate = (weatherData) => {
-    setCurrentWeather(weatherData);
-    
-    // If successful, navigate to the detail view
-    if (weatherData.temperature !== null && !weatherData.error) {
-      setSelectedCity(weatherData.city);
-      setView('detail');
-    }
-  };
-
-  // handler to return to home page
-  const handleBackToHome = () => {
-    setView('home');
-  };
-
   return (
     <>
       {isInitialLoading ? (
@@ -107,41 +76,17 @@ function App() {
       ) : (
         <>
           <div className="weatherContainer">
-            {view === 'home' ? (
-              <>
-                <header className="appHeader">
-                  <WeatherHeader />
-                </header>
-                
-                <section className="searchSection">
-                  <SearchBar onWeatherUpdate={handleWeatherUpdate} />
-                  
-                  {currentWeather.loading && (
-                    <p className="statusMessage">Loading...</p>
-                  )}
-                  
-                  {currentWeather.error && (
-                    <p className="errorMessage">{currentWeather.error}</p>
-                  )}
-                </section>
-                
-                <section className="defaultCitiesSection">
-                  <DefaultCities 
-                    cachedData={cachedWeatherData}
-                    onCitySelect={(city) => {
-                      setSelectedCity(city);
-                      setView('detail');
-                    }}
-                  />
-                </section>
-              </>
-            ) : (
-              // Detail page view
-              <WeatherDetail 
-                city={selectedCity}
-                onBackClick={handleBackToHome}
+            <Routes>
+              <Route 
+                path="/" 
+                element={<HomePage cachedWeatherData={cachedWeatherData} />} 
               />
-            )}
+              <Route 
+                path="/city/:cityName" 
+                element={<CityDetailPage />} 
+              />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
           </div>
           <Footer />
         </>
