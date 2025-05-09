@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { fetchCityTemperature } from '../utils/weatherUtils';
 
 function SearchBar({ onWeatherUpdate }) {
-  const [city, setCity] = useState('Helsinki');
+  const [city, setCity] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     
     if (!city.trim()) {
+      alert('Please enter a city name.');
       return;
     }
     
@@ -39,7 +40,6 @@ function SearchBar({ onWeatherUpdate }) {
         <button 
           type="submit" 
           className="searchButton"
-          disabled={loading || !city.trim()}
         >
           {loading ? 'Loading...' : 'Get Weather'}
         </button>

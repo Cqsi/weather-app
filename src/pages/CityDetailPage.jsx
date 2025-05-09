@@ -75,12 +75,8 @@ function CityDetailPage() {
   return (
     <div className="weatherDetailContainer">
       <button onClick={handleBackClick} className="backButton">
-        &larr; Back to Search
+        Back to Search
       </button>
-      
-      <header className="cityHeader">
-        <h1>{decodedCityName}</h1>
-      </header>
 
       {forecastData.loading && (
         <div className="loadingContainer">
@@ -96,15 +92,18 @@ function CityDetailPage() {
 
       {forecastData.current && !forecastData.loading && !forecastData.error && (
         <>
-          <div className="currentWeatherDetail">
-            <div className="weatherIconLarge">
-              <img 
-                src={getWeatherIcon(forecastData.current.weatherCode)} 
-                alt={`Weather condition: ${forecastData.current.weatherCode}`}
-              />
-            </div>
-            <div className="currentTemp">
-              {forecastData.current.temperature}°C
+          <div className="currentWeatherHeader">
+            <h1 className="cityTitle">{decodedCityName}</h1>
+            <div className="currentWeatherDetail">
+                <div className="weatherIconLarge">
+                <img 
+                    src={getWeatherIcon(forecastData.current.weatherCode)} 
+                    alt={`Weather condition: ${forecastData.current.weatherCode}`}
+                />
+                </div>
+                <div className="currentTemp">
+                {forecastData.current.temperature}°C
+                </div>
             </div>
           </div>
           

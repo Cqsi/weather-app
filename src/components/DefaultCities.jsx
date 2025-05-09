@@ -14,7 +14,6 @@ function DefaultCities({ cachedData = {}, onCitySelect }) {
 
   return (
     <div className="defaultCitiesContainer">
-      <h3>Popular Cities</h3>
       <div className="citiesGrid">
         {defaultCities.map(city => (
           <Link 

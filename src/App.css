@@ -183,6 +183,7 @@ padding: 1.2rem;
 background-color: #fff;
 border-radius: 8px;
 box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
+border: 2px solid #9e9e9e;
 text-align: center;
 transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -216,18 +217,26 @@ font-size: 0.9rem;
 }
 
 footer {
-background-color: #A3E5FF;
-min-height: 100px;
-margin-top: 5rem;
-display: flex;
-align-items: center;
+  background-color: #A3E5FF;
+  min-height: 100px;
+  margin-top: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
 }
 
-footer p {
+.footer-left p {
   font-size: 1.2rem;
-  margin-left: 1rem;
   color: black;
+  margin: 0;
 }
+
+.footer-right {
+  display: flex;
+  align-items: center;
+}
+
 
 /* some simple responsiveness, adding more here later */
 @media (max-width: 768px) {
