@@ -121,8 +121,9 @@ opacity: 0;
 
 .searchButton {
 padding: 0.8rem 1.5rem;
-background-color: #ffe815;
+background-color: #A3E5FF;
 color: black;
+font-weight: 500;
 border: 2px solid black;
 border-radius: 6px;
 font-size: 1rem;
@@ -132,12 +133,7 @@ font-family: inherit;
 }
 
 .searchButton:hover {
-background-color: #f2dc14;
-}
-
-.searchButton:disabled {
-background-color: #95a5a6;
-cursor: not-allowed;
+background-color: #6bc0fd;
 }
 
 .currentWeatherResult {
