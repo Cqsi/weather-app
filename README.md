@@ -1,6 +1,6 @@
 # Weather App
 
-For the questions included in the actual assignment (saateteksti), go here.
+For the questions included in the actual assignment (saateteksti), [go here](#mitä-opitte-git-yhteistyöstä-ja-yhdessä-projektin-tekemisestä-mitä-haasteita-yhteistyö-gitissä-mahdollisesti-aiheutti).
 
 This is a simple yet beautiful and informative weather app built with React for the end-of-course project in the course Verkkojulkastuminen Perusteet (VJP) that I took part in during the spring of 2025. The user can enter their city and get relevant temperature data for today, tomorrow and the incoming days.
 
@@ -45,4 +45,4 @@ One lesson I have learned over and over again is that simpler UI is better in mo
 
 My principle with AI usage is to never copy straight from the AI. Also to just ask specific questions is important, if it starts generating all the code, that is when you stop learning. 
 
-There were a few specific things where AI helped me a lot. For example, connection the "Loading the weather data..." component correctly to the rest of the website was hard and I was unsure how to do it. In that situation AI provided a clear way and saved me a lot of time. It was a specific problem and I learned from it. 
+There were a few specific things where AI helped me a lot. For example, connecting the "Loading the weather data..." component correctly to the rest of the website was hard and I was unsure how to do it. In that situation AI provided a clear way and saved me a lot of time. It was a specific problem and I learned from the implemention that AI provided.
