@@ -1,12 +1,38 @@
-# React + Vite
+# Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+For the questions included in the actual assignment (saateteksti), go here.
 
-Currently, two official plugins are available:
+This is a simple yet beautiful and informative weather app built with React for the end-of-course project in the course Verkkojulkastuminen Perusteet (VJP) that I took part in during the spring of 2025. The user can enter their city and get relevant temperature data for today, tomorrow and the incoming days.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technical details
 
-## Expanding the ESLint configuration
+The app uses React as the frontend framework and React Router for routing between the pages. The app consists of a variety of components that build up the pages in the website.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## API Usage
+
+My website uses to external APIs. For the weather data, I chose to use Open-Meteo since it was free and easy to set up. 
+
+```
+const weatherResponse = await fetch(
+  `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weathercode&hourly=temperature_2m&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=auto&forecast_days=7`
+);
+```
+
+I also needed an API for geocoding; I needed to convert city names to latitude and longitude coordinates since Open-Meteo could only find the weather data based on city names. 
+
+```
+const weatherResponse = await fetch(
+  `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weathercode`
+);
+
+```
+
+## Mitä opitte git yhteistyöstä ja yhdessä projektin tekemisestä? Mitä haasteita yhteistyö gitissä mahdollisesti aiheutti?
+
+I did this project alone since I don't go 
+
+Millaista työnjaon tekeminen oli? Oliko helppoa jakaa työ tehtäviin palasiin ryhmäläisten kesken?
+
+Mitä uutta opitte UI-suunnittelusta viestinnän keinona?
+
+Jos hyödynsitte tehtävän teossa tekoälyä, millä tavalla?
