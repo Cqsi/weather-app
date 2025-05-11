@@ -1,14 +1,23 @@
 # Weather App
 
+This is a simple yet informative weather app built as the end-of-course project in the course Verkkojulkastuminen Perusteet (VJP) that I took part in during the spring of 2025. 
+
+The user can enter their city and get relevant temperature data for today, tomorrow and the incoming days.
+
 For the questions included in the actual assignment (saateteksti), [go here](#mitä-opitte-git-yhteistyöstä-ja-yhdessä-projektin-tekemisestä-mitä-haasteita-yhteistyö-gitissä-mahdollisesti-aiheutti).
 
-This is a simple yet beautiful and informative weather app built with React for the end-of-course project in the course Verkkojulkastuminen Perusteet (VJP) that I took part in during the spring of 2025. The user can enter their city and get relevant temperature data for today, tomorrow and the incoming days.
+### Regarding the assignment requirements
+The Figma file is in the root of the project. The external React library I used was [Recharts](https://recharts.org/en-US).
+
 
 ## Technical details
 
 The app uses React as the frontend framework and React Router for routing between the pages. The app consists of a variety of components that build up the pages in the website.
 
 The loading animation in the start is there for a reason. The weather API usage was quite restricted and loading in the temperatures for the default cities on the HomePage take too long. It looks silly to the user and that is why there is a slight loading before passing the user on to the website, to ensure that their experience is better on the website.
+
+### Regarding the assignment requirements
+The Figma file is in the root of the project. The external React library I used was [Recharts](https://recharts.org/en-US).
 
 ## API Usage
 
