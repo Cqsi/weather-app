@@ -16,6 +16,14 @@ function CityDetailPage() {
   const { cityName } = useParams();
   const navigate = useNavigate();
   const decodedCityName = decodeURIComponent(cityName);
+
+  const isMobile = window.innerWidth <= 768;
+
+  const getXAxisTicks = () => {
+    const data = prepareHourlyData();
+    const step = isMobile ? 6 : 2; // every 6h on mobile, every 2h on desktop
+    return data.filter((_, index) => index % step === 0).map(item => item.hour);
+  };
   
   const [forecastData, setForecastData] = useState({
     current: null,
@@ -174,10 +182,7 @@ function CityDetailPage() {
                     dataKey="hour" 
                     tick={{ fontSize: 12 }} 
                     tickMargin={10}
-                    ticks={prepareHourlyData()
-                      .filter((_, index) => index % 2 === 0)
-                      .map(item => item.hour)
-                    }
+                    ticks={getXAxisTicks()}
                     interval={0}
                   />
                   <YAxis 
