@@ -36,7 +36,7 @@ function WeatherHeader() {
           setAnimationState('visible');
         }, 300);
       }, 300);
-    }, 3000); // change every 3 seconds
+    }, 2000); // change every 3 seconds
     
     return () => clearInterval(interval);
   }, []);
