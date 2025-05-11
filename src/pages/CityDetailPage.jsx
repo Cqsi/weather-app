@@ -1,5 +1,14 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { 
+  LineChart, 
+  Line, 
+  XAxis, 
+  YAxis, 
+  CartesianGrid, 
+  Tooltip, 
+  ResponsiveContainer 
+} from 'recharts';
 import { fetchCityForecast } from '../utils/weatherUtils';
 import '../WeatherDetail.css';
 
@@ -11,6 +20,7 @@ function CityDetailPage() {
   const [forecastData, setForecastData] = useState({
     current: null,
     daily: null,
+    hourly: null,
     error: null,
     loading: true
   });
@@ -24,6 +34,7 @@ function CityDetailPage() {
       setForecastData({
         current: result.current,
         daily: result.daily,
+        hourly: result.hourly,
         error: result.error,
         loading: false
       });
@@ -66,10 +77,52 @@ function CityDetailPage() {
     return new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(date);
   };
 
+  // Format hour for chart
+  const formatHour = (dateTimeStr) => {
+    const date = new Date(dateTimeStr);
+    return date.getHours() + ':00';
+  };
+
+  // Prepare hourly temperature data for today
+  const prepareHourlyData = () => {
+    if (!forecastData.hourly) return [];
+    
+    const today = new Date().toISOString().split('T')[0];
+    const hourlyData = [];
+    
+    // Get hourly data for today
+    forecastData.hourly.time.forEach((time, index) => {
+      // Only include today's data
+      if (time.startsWith(today)) {
+        hourlyData.push({
+          time: time,
+          hour: formatHour(time),
+          temperature: forecastData.hourly.temperature_2m[index],
+          weatherCode: forecastData.hourly.weathercode ? forecastData.hourly.weathercode[index] : null
+        });
+      }
+    });
+    
+    return hourlyData;
+  };
+
   const today = new Date().toISOString().split('T')[0];
 
   const handleBackClick = () => {
     navigate('/');
+  };
+
+  // Custom tooltip for the chart
+  const CustomTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="custom-tooltip">
+          <p className="tooltip-time">{label}</p>
+          <p className="tooltip-temp">{`${Math.round(payload[0].value)}°C`}</p>
+        </div>
+      );
+    }
+    return null;
   };
 
   return (
@@ -104,6 +157,47 @@ function CityDetailPage() {
                 <div className="currentTemp">
                 {forecastData.current.temperature}°C
                 </div>
+            </div>
+          </div>
+          
+          {/* Hourly Temperature Chart */}
+          <div className="forecastSection">
+            <h2>Hourly Forecast</h2>
+            <div className="hourlyChartContainer">
+              <ResponsiveContainer width="100%" height={250}>
+                <LineChart
+                  data={prepareHourlyData()}
+                  margin={{ top: 5, right: 20, left: 0, bottom: 5 }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} />
+                  <XAxis 
+                    dataKey="hour" 
+                    tick={{ fontSize: 12 }} 
+                    tickMargin={10}
+                    ticks={prepareHourlyData()
+                      .filter((_, index) => index % 2 === 0)
+                      .map(item => item.hour)
+                    }
+                    interval={0}
+                  />
+                  <YAxis 
+                    tickCount={6} 
+                    tick={{ fontSize: 12 }} 
+                    domain={['auto', 'auto']}
+                    tickMargin={10}
+                    unit="°C"
+                  />
+                  <Tooltip content={<CustomTooltip />} />
+                  <Line 
+                    type="monotone" 
+                    dataKey="temperature" 
+                    stroke="#3498db" 
+                    strokeWidth={2}
+                    dot={{ stroke: '#3498db', strokeWidth: 2, r: 4 }}
+                    activeDot={{ stroke: '#3498db', strokeWidth: 2, r: 6 }}
+                  />
+                </LineChart>
+              </ResponsiveContainer>
             </div>
           </div>
           

@@ -67,9 +67,10 @@ export const fetchCityForecast = async (city) => {
     // get forecast data using the open-meteo API
     // We're getting:
     // - current temperature and weather code
+    // - hourly temperature for today
     // - daily forecast for temperature min/max and weather code for 7 days
     const weatherResponse = await fetch(
-      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weathercode&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=auto&forecast_days=7`
+      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weathercode&hourly=temperature_2m&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=auto&forecast_days=7`
     );
 
     const weatherData = await weatherResponse.json();
@@ -85,6 +86,7 @@ export const fetchCityForecast = async (city) => {
         weatherCode: weatherData.current.weathercode
       },
       daily: weatherData.daily,
+      hourly: weatherData.hourly,
       error: null
     };
   } catch (err) {
