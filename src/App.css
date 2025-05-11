@@ -234,21 +234,87 @@ footer {
 }
 
 
-/* some simple responsiveness, adding more here later */
+/* Mobile responsiveness improvements */
+/* Add this updated media query to your existing CSS */
 @media (max-width: 768px) {
-.citiesGrid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-}
-
-.weatherContainer {
-    padding: 1.5rem;
-}
-
-.searchBarContainer form {
+  /* Header size reduction by about 30% */
+  .appHeader h2 {
+    font-size: 2.8rem;  /* Down from 4rem */
+    margin-top: 1.4em;  /* Down from 2em */
+  }
+  
+  .appHeader h3 {
+    font-size: 1.25rem;  /* Down from 1.8rem */
+  }
+  
+  .emoji-container {
+    width: 50px;  /* Down from 70px */
+    height: 52px;  /* Down from 72px */
+    margin-left: 15px;  /* Down from 25px */
+    margin-right: 15px;  /* Down from 25px */
+  }
+  
+  .emoji {
+    width: 50px;  /* Down from 70px */
+    height: 50px;  /* Down from 70px */
+  }
+  
+  /* Search section adjustments */
+  .searchSection {
+    padding: 0.8rem;  /* Down from 1.5rem */
+  }
+  
+  /* Modified search form for mobile - stack input and button vertically */
+  .searchBarContainer form {
     flex-direction: column;
-}
+    width: 100%;
+  }
+  
+  .cityInput {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .searchButton {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  
+  .citiesGrid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    padding: 0 0.8rem;  /* Add some padding to avoid touching edges */
+  }
 
-footer {
+  .weatherContainer {
+    padding: 0 0.8rem;  /* Add horizontal padding */
+  }
+  
+  /* City detail page responsive improvements */
+  .weatherDetailContainer {
+    padding: 1rem 0.8rem;
+  }
+  
+  .currentWeatherHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .cityTitle {
+    font-size: 2.5rem;  /* Down from 3.5rem */
+  }
+  
+  .currentTemp {
+    font-size: 2.2rem;  /* Down from 3rem */
+  }
+  
+  .weatherIconLarge {
+    width: 70px;
+    height: 70px;  
+  }
+
+  footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
