@@ -75,7 +75,7 @@ function CityDetailPage() {
   return (
     <div className="weatherDetailContainer">
       <button onClick={handleBackClick} className="backButton">
-        Back to Search
+        <img src="/arrow_back.png" alt="Back" />
       </button>
 
       {forecastData.loading && (
