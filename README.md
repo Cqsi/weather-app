@@ -8,6 +8,8 @@ This is a simple yet beautiful and informative weather app built with React for 
 
 The app uses React as the frontend framework and React Router for routing between the pages. The app consists of a variety of components that build up the pages in the website.
 
+The loading animation in the start is there for a reason. The weather API usage was quite restricted and loading in the temperatures for the default cities on the HomePage take too long. It looks silly to the user and that is why there is a slight loading before passing the user on to the website, to ensure that their experience is better on the website.
+
 ## API Usage
 
 My website uses to external APIs. For the weather data, I chose to use Open-Meteo since it was free and easy to set up. 
@@ -29,10 +31,18 @@ const weatherResponse = await fetch(
 
 ## Mitä opitte git yhteistyöstä ja yhdessä projektin tekemisestä? Mitä haasteita yhteistyö gitissä mahdollisesti aiheutti?
 
-I did this project alone since I don't go 
+I did this project alone, since I'm not in the VDM course. I can however answer this question based on previous similar experience. Running into merge conflicts and be rough and time-consuming. Sometimes when you have to revert version when you are not comfortable with using Git, it can be quite stressful.
 
-Millaista työnjaon tekeminen oli? Oliko helppoa jakaa työ tehtäviin palasiin ryhmäläisten kesken?
+## Millaista työnjaon tekeminen oli? Oliko helppoa jakaa työ tehtäviin palasiin ryhmäläisten kesken?
 
-Mitä uutta opitte UI-suunnittelusta viestinnän keinona?
+I did this project alone.
 
-Jos hyödynsitte tehtävän teossa tekoälyä, millä tavalla?
+## Mitä uutta opitte UI-suunnittelusta viestinnän keinona?
+
+One lesson I have learned over and over again is that simpler UI is better in most cases, since in the end there isn't many reasons to show a lot of unnecessary things to the user that doesn't serve any purpose. I believe this is one of the first projects where I was able to keep the UI truly simple, from beginning to end. I think the reason for this is mostly Figma, since I started with the design and adhered to it during the code implementation. 
+
+## Jos hyödynsitte tehtävän teossa tekoälyä, millä tavalla?
+
+My principle with AI usage is to never copy straight from the AI. Also to just ask specific questions is important, if it starts generating all the code, that is when you stop learning. 
+
+There were a few specific things where AI helped me a lot. For example, connection the "Loading the weather data..." component correctly to the rest of the website was hard and I was unsure how to do it. In that situation AI provided a clear way and saved me a lot of time. It was a specific problem and I learned from it. 
