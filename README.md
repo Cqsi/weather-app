@@ -2,6 +2,10 @@
 
 Link to the website: [https://weather-app-five-flame-57.vercel.app/](https://weather-app-five-flame-57.vercel.app/)
 
+Link to Figma file: [https://www.figma.com/design/hetuwaA5ijCMXQrqf81Nl0/Weather-website?node-id=0-1&t=cZ5FynOz7LAEpnui-1](https://www.figma.com/design/hetuwaA5ijCMXQrqf81Nl0/Weather-website?node-id=0-1&t=cZ5FynOz7LAEpnui-1)
+
+The Figma file is also found in the repsitory root.
+
 This is a simple yet informative weather app built as the end-of-course project in the course Verkkojulkastuminen Perusteet (VJP) that I took part in during the spring of 2025. 
 
 The user can enter their city and get relevant temperature data for today, tomorrow and the incoming days.
@@ -10,8 +14,7 @@ For the questions included in the actual assignment (saateteksti), [go here](#mi
 
 The design in Figma took around 5 hours, the code implementation took about 25h. 
 
-### Regarding the assignment requirements
-The Figma file is in the root of the project. The external React library I used was [Recharts](https://recharts.org/en-US).
+The external React library I used was [Recharts](https://recharts.org/en-US).
 
 
 ## Technical details
