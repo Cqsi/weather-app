@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { fetchCityTemperature } from '../utils/weatherUtils';
 
+// get the weather for the default cities
+
 function CityWeather({ city, initialLoad = false, cachedData = null }) {
   const [weatherData, setWeatherData] = useState({
     temperature: cachedData ? cachedData.temperature : null,

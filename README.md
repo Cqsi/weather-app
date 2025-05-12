@@ -52,6 +52,6 @@ One lesson I have learned over and over again is that simpler UI is better in mo
 
 ## Jos hyödynsitte tehtävän teossa tekoälyä, millä tavalla?
 
-My principle with AI usage is to never copy straight from the AI. Also to just ask specific questions is important, if it starts generating all the code, that is when you stop learning. 
+My principle with AI usage is to try to never copy straight from the AI. Also to just ask specific questions is important, if it starts generating all the code, that is when you stop learning. 
 
 There were a few specific things where AI helped me a lot. For example, connecting the "Loading the weather data..." component correctly to the rest of the website was hard and I was unsure how to do it. In that situation AI provided a clear way and saved me a lot of time. It was a specific problem and I learned from the implemention that AI provided.

@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import CityWeather from './CityWeather';
 
+// default cities components, get the weather of the cities using the CityWeather.jsx component
 function DefaultCities({ cachedData = {}, onCitySelect }) {
+  
   // Default cities
   const defaultCities = [
     'London',

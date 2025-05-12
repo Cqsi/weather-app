@@ -17,14 +17,17 @@ function CityDetailPage() {
   const navigate = useNavigate();
   const decodedCityName = decodeURIComponent(cityName);
 
+  // check whether we are on a mobile screen
   const isMobile = window.innerWidth <= 768;
 
+  // function to get amount of ticks on X-axis. Show only every 6h on mobile.
   const getXAxisTicks = () => {
     const data = prepareHourlyData();
     const step = isMobile ? 6 : 2; // every 6h on mobile, every 2h on desktop
     return data.filter((_, index) => index % step === 0).map(item => item.hour);
   };
   
+  // forecast data state
   const [forecastData, setForecastData] = useState({
     current: null,
     daily: null,
@@ -114,8 +117,6 @@ function CityDetailPage() {
     return hourlyData;
   };
 
-  const today = new Date().toISOString().split('T')[0];
-
   const handleBackClick = () => {
     navigate('/');
   };
@@ -168,7 +169,6 @@ function CityDetailPage() {
             </div>
           </div>
           
-          {/* Hourly Temperature Chart */}
           <div className="forecastSection">
             <h2>Hourly Forecast</h2>
             <div className="hourlyChartContainer">

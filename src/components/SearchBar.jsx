@@ -1,10 +1,14 @@
 import { useState } from 'react';
 import { fetchCityTemperature } from '../utils/weatherUtils';
 
+// search bar component 
 function SearchBar({ onWeatherUpdate }) {
+
+  // states for the city and whether the site is loading
   const [city, setCity] = useState('');
   const [loading, setLoading] = useState(false);
 
+  // handle user submit of city
   const handleSubmit = async (e) => {
     e.preventDefault();
     
